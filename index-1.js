@@ -16,6 +16,12 @@ function num(id) {
 
     input = number;
     numArr = ["-"];
+    // if (numArr[0] == "-" && ) {
+    //   res();
+    // }
+  } else if (number == "-" && numArr[0] == "-" && numArr.length == 1) {
+    input = "0";
+    numArr = ["0"];
   }
   // switch the default 0 value by a new value
   else if (
