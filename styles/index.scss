@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+.container {
+  height: 100vh;
+  width: auto;
+  background-color: hsl(222, 26%, 31%);
+  font-family: "League Spartan", sans-serif;
+  &__calculator {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    &__panel {
+      color: white;
+      // padding: 2%;
+      height: 30%;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      &__head {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+        &__theme {
+          display: flex;
+          flex-direction: row;
+          width: 30%;
+          h6 {
+            width: 20%;
+
+            margin-bottom: 0;
+          }
+          &__selector {
+            margin-left: 10%;
+            width: 80%;
+            &__numpad {
+              h6 {
+                margin-top: 10%;
+                &:nth-child(2) {
+                  text-align: center;
+                }
+                &:last-child {
+                  text-align: right;
+                }
+              }
+              display: flex;
+              justify-content: space-between;
+            }
+            &__checkbox {
+              border-radius: 12px;
+
+              background-color: hsl(224, 36%, 15%);
+              svg {
+                margin-left: 3%;
+              }
+              #circle {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+      &__screen {
+        background-color: hsl(224, 36%, 15%);
+        h1 {
+          margin: 0;
+          color: white;
+          text-align: right;
+          font-size: 4.5rem;
+        }
+      }
+    }
+    &__buttons {
+      height: 60%;
+      width: 40%;
+      background: hsl(223, 31%, 20%);
+      &__grid {
+        height: 90%;
+        margin: 5%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        row-gap: 5%;
+        column-gap: 5%;
+        button {
+          border-radius: 12px;
+          box-sizing: content-box;
+          line-height: 0;
+          padding: 0px;
+        }
+        &__insert {
+          font-size: 3rem;
+          color: hsl(221, 14%, 31%);
+          border: 0px;
+          background-color: hsl(30, 25%, 89%);
+          border-bottom: 0.35rem solid hsl(28, 16%, 65%);
+        }
+
+        &__reset {
+          text-transform: uppercase;
+          color: white;
+          border: 0px;
+          background-color: hsl(225, 21%, 49%);
+          border-bottom: 0.35rem solid hsl(224, 28%, 35%);
+        }
+        #res {
+          grid-column: span 2;
+        }
+        #calculate {
+          color: white;
+          background-color: hsl(6, 63%, 50%);
+          border: 0px;
+          border-bottom: 0.35rem solid hsl(6, 70%, 34%);
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+  .attribution {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}

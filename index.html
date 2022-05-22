@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Calculator app</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/default-index.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="container__calculator">
+      <div class="container__calculator__panel">
+
+        <div class="container__calculator__panel__head">
+          <div class="container__calculator__panel__head__title">
+            <h2>calc</h2>
+          </div>
+          <div class="container__calculator__panel__head__theme">
+            <h6>Theme</h6>
+            <div class="container__calculator__panel__head__theme__selector">
+              <div class="container__calculator__panel__head__theme__selector__numpad">
+                <h6>1</h6>
+                <h6>2</h6>
+                <h6>3</h6>
+              </div>
+              <div class="container__calculator__panel__head__theme__selector__checkbox">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-circle-fill" viewBox="0 0 16 16">
+                  <circle id="circle" cx="8" cy="8" r="8" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="container__calculator__panel__screen">
+          <p id="exp">0</p>
+          <h1 id="val">0</h1>
+        </div>
+      </div>
+
+
+      <div class="container__calculator__buttons">
+        <div class="container__calculator__buttons__grid">
+          <button id="seven" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">7</button>
+          <button id="eight" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">8</button>
+          <button id="nine" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">9</button>
+          <button id="del" class="container__calculator__buttons__grid__reset" onclick="del()">del</button>
+          <button id="four" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">4</button>
+          <button id="five" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">5</button>
+          <button id="six" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">6</button>
+          <button id="sum" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">+</button>
+          <button id="one" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">1</button>
+          <button id="two" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">2</button>
+          <button id="three" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">3</button>
+          <button id="sub" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">-</button>
+          <button id="dot" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">.</button>
+          <button id="zero" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">0</button>
+          <button id="div" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">/</button>
+          <button id="multi" class="container__calculator__buttons__grid__insert" onclick="num(this.id)">x</button>
+          <button id="res" class="container__calculator__buttons__grid__reset" onclick="res()">reset</button>
+          <button id="calculate" onclick="calc()">=</button>
+        </div>
+
+      </div>
+
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+        Coded by <a href="#">GBYB</a>.
+      </div>
+    </div>
+
+  </div>
+  <script src="index-1.js"></script>
+
+
+</body>
+
+</html>
