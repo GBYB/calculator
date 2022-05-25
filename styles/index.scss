@@ -8,11 +8,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    // justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 1.5rem;
     &__panel {
       color: white;
+      margin-bottom: 2%;
+
       // padding: 2%;
       height: 30%;
       width: 40%;
@@ -68,12 +70,17 @@
         }
       }
       &__screen {
+        border-radius: 6px;
+
         background-color: hsl(224, 36%, 15%);
-        h1 {
-          margin: 0;
-          color: white;
-          text-align: right;
-          font-size: 4.5rem;
+        &__body {
+          margin: 5%;
+          h1 {
+            margin: 0;
+            color: white;
+            text-align: right;
+            font-size: 4.5rem;
+          }
         }
       }
     }
@@ -81,6 +88,8 @@
       height: 60%;
       width: 40%;
       background: hsl(223, 31%, 20%);
+      border-radius: 6px;
+
       &__grid {
         height: 90%;
         margin: 5%;

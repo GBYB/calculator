@@ -9,66 +9,80 @@ function num(id) {
 
   //make a negative number
   if (
-    (number == "-" && numArr[0] == 0 && numArr.length == 1) ||
-    (number == "-" && numArr.length == 0)
+    (number == "-" &&
+      numArr[0] == 0 &&
+      numArr.length == 1 &&
+      expression.length <= 1) ||
+    (number == "-" && numArr.length == 0 && expression.length <= 1)
   ) {
-    console.log("hello");
-
     input = number;
     numArr = ["-"];
-    // if (numArr[0] == "-" && ) {
-    //   res();
-    // }
-  } else if (number == "-" && numArr[0] == "-" && numArr.length == 1) {
+  }
+  // switch a negative number to a positive
+  else if (
+    number == "-" &&
+    numArr[0] == "-" &&
+    numArr.length == 1 &&
+    expression.length <= 1
+  ) {
     input = "0";
     numArr = ["0"];
   }
-  // switch the default 0 value by a new value
+  // switch the default 0 value by a new number
   else if (
     (Number.isInteger(parseFloat(number)) &&
       numArr[0] == 0 &&
       numArr.length == 1) ||
     (Number.isInteger(parseFloat(number)) && numArr.length == 0)
   ) {
-    console.log("goodbye");
+    console.log("switch 0");
     input = number;
     numArr = [number];
-    // if (numArr[0] == "-" && numArr[1] == "0") {
-    //   console.log("yellow");
-    // }
-    // if (
-    //   number != "0" &&
-    //   numArr[1] == 0 &&
-    //   numArr[0] == "-" &&
-    //   numArr.length == 2
-    // ) {
-    //   input += number;
-    //   numArr.push(number);
-    // } else {
-    //   numArr[1] = number;
-    // }
-  } else {
-    // add number if the first value is set to a value
-    // if (Number.isInteger(parseFloat(number)) && numArr[numArr.length - 1] > 0) {
-    if (Number.isInteger(parseFloat(number)) && numArr.length > 0) {
-      console.log("goodbye");
-
-      input += number;
-      numArr.push(number);
-    } // add number if the first value is set to -
-    else if (
+  } // add number if the first value is set to a value
+  else {
+    if (
       Number.isInteger(parseFloat(number)) &&
-      numArr[numArr.length - 1] == "-"
+      numArr.length > 0 &&
+      numArr[0] != "-"
     ) {
-      console.log("goodbye");
+      console.log("add");
 
       input += number;
       numArr.push(number);
-    } // add dot if the number isnt a decimal]
+    }
+    // add a negative number
+    else if (numArr[0] == "-" && Number.isInteger(parseFloat(number))) {
+      console.log("negative");
+
+      //get if the negative number is decimal
+      for (let i = 0; i < numArr.length; i++) {
+        if (numArr[i] == ".") {
+          valid = false;
+        }
+      }
+      //handle if the number is not a decimal
+      if (numArr[1] == 0 && numArr[2] != "." && numArr.length == 2) {
+        input = "-" + number;
+        numArr = ["-" + number];
+        console.log("switch");
+      }
+      // handle decimal number
+      else if (valid) {
+        input += number;
+        numArr.push(number);
+        console.log("valid");
+      } else {
+        input += number;
+        numArr.push(number);
+        console.log("last");
+      }
+    }
+    // add dot if the number isnt a decimal
     else if (
       number == "." &&
       Number.isInteger(parseFloat(numArr[numArr.length - 1]))
     ) {
+      console.log("dotted");
       for (let i = 0; i < numArr.length; i++) {
         if (numArr[i] == ".") {
           valid = false;
@@ -79,18 +93,20 @@ function num(id) {
         numArr.push(number);
       }
     }
-    // add decimal number
-    else if (
-      numArr[numArr.length - 1] == "." &&
-      Number.isInteger(parseFloat(number))
-    ) {
-      input += number;
-      numArr.push(number);
-    }
+    // // add decimal number
+    // else if (
+    //   numArr[numArr.length - 1] == "." &&
+    //   Number.isInteger(parseFloat(number))
+    // ) {
+    //   console.log("I am the sand guardian guardian of the sand");
+    //   input += number;
+    //   numArr.push(number);
+    // }
     // make expression
     if (
       (number == "+" || number == "-" || number == "x" || number == "/") &&
       numArr[numArr.length - 1] != "." &&
+      numArr[numArr.length - 1] != "-" &&
       expression.charAt(expression.length - 1) != "+" &&
       expression.charAt(expression.length - 1) != "-" &&
       expression.charAt(expression.length - 1) != "x" &&
@@ -103,6 +119,65 @@ function num(id) {
       numArr = ["0"];
       input = "0";
     }
+    //switch the operands + x /
+    else if (
+      numArr[numArr.length - 1] != "." &&
+      (number == "+" || number == "x" || number == "/" || number == "-")
+    ) {
+      console.log("please control");
+      expression = expression.replace("+", number);
+      expression = expression.replace("/", number);
+      expression = expression.replace("x", number);
+      for (let i = 0; i < expression.length; i++) {
+        if (expression.charAt(i) == "-" && i != 0) {
+          expression = expression.substring(0, i) + number;
+        }
+      }
+      // for (let i = 0; i < expression.length; i++) {
+      //   if (
+      //     expression.charAt(i) == "+" ||
+      //     expression.charAt(i) == "x" ||
+      //     expression.charAt(i) == "/"
+      //   ) {
+      //     expression = expression.substring(0, i) + number;
+      //   }
+      // }
+    }
+    // switch to the - operand
+    // else {
+    //   if (number == "-" && (numArr[0] != 0 || numArr.length > 1)) {
+    //     expression = expression.replace("+", number);
+    //     expression = expression.replace("/", number);
+    //     expression = expression.replace("x", number);
+    //   }
+    // }
+    // } else if (
+    //   (((number == "+" || number == "x" || number == "/") &&
+    //     expression.charAt(expression.length - 1) != number &&
+    //     expression.charAt(expression.length - 1) == "+") ||
+    //     expression.charAt(expression.length - 1) == "x" ||
+    //     expression.charAt(expression.length - 1) == "/") &&
+    //   expression.length >= 1
+    // ) {
+    //   console.log(" i am here");
+    //   expression = expression.replace("+", number);
+    //   expression = expression.replace("/", number);
+    //   expression = expression.replace("x", number);
+    // }
+
+    // expression = expression.slice(0, expression.length) + number;
+    // }  if (
+    //   (((number == "+" || number == "x" || number == "/") &&
+    //     expression.charAt(expression.length - 1) != number &&
+    //     expression.charAt(expression.length - 1) == "+") ||
+    //     expression.charAt(expression.length - 1) == "x" ||
+    //     expression.charAt(expression.length - 1) == "/") &&
+    //   expression.length >= 1
+    // ) {
+    //   expression = expression.slice(0, expression.length - 1) + number;
+    //   numArr = ["0"];
+    //   input = "0";
+    // }
   }
   console.log(expression);
 
@@ -155,6 +230,7 @@ function calc() {
       calc = false;
     }
   }
+
   if (calc) {
     if (
       input.charAt(input.length - 1) != "." &&
@@ -196,7 +272,8 @@ function calc() {
           }
 
           if ("-" == expression.charAt(i) && "-" == input.charAt(0)) {
-            expression = expression.substring(0, i) + "+";
+            console.log(expression.substring(0, expression.length - 1));
+            expression = expression.substring(0, expression.length - 1) + "+";
             input = input.substring(1, input.length);
           }
         }
@@ -208,14 +285,17 @@ function calc() {
             res = "invalid expression";
             expression += input + "=" + res;
             input = 0;
+            numArr = ["0"];
           } else {
             expression += input + "=" + res;
             input = res;
+            numArr = [res];
           }
         } else {
           let res = eval(multi + input);
           expression += input + "=" + res;
           input = res;
+          numArr = [res];
         }
       }
 
