@@ -119,7 +119,7 @@ function num(id) {
       numArr = ["0"];
       input = "0";
     }
-    //switch the operands + x /
+    //switch the operands
     else if (
       numArr[numArr.length - 1] != "." &&
       (number == "+" || number == "x" || number == "/" || number == "-")

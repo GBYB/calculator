@@ -1,8 +1,152 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+// .container {
+//   height: 100vh;
+//   width: auto;
+//   font-family: "League Spartan", sans-serif;
+//   &__calculator {
+//     height: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     align-items: center;
+//     font-size: 1.5rem;
+//     &__panel {
+//       margin-bottom: 2%;
+
+//       height: 30%;
+//       width: 40%;
+//       display: flex;
+//       flex-direction: column;
+//       &__head {
+//         width: 100%;
+//         display: flex;
+//         justify-content: space-between;
+//         &:first-child {
+//           text-align: left;
+//         }
+//         &:last-child {
+//           text-align: right;
+//         }
+//         &__theme {
+//           display: flex;
+//           flex-direction: row;
+//           width: 30%;
+//           h6 {
+//             width: 20%;
+
+//             margin-bottom: 0;
+//           }
+//           &__selector {
+//             margin-left: 10%;
+//             width: 80%;
+//             &__numpad {
+//               h6 {
+//                 margin-top: 10%;
+//                 &:nth-child(2) {
+//                   text-align: center;
+//                 }
+//                 &:last-child {
+//                   text-align: right;
+//                 }
+//               }
+//               display: flex;
+//               justify-content: space-between;
+//             }
+//             &__checkbox {
+//               width: 100%;
+//               height: 30%;
+//               display: flex;
+//               align-items: center;
+//               border-radius: 12px;
+//               svg {
+//                 margin-left: 3%;
+//                 height: 100%;
+//               }
+//               #circle {
+//                 height: 100%;
+//               }
+//               // #progress { divs are always rectangulare shaped unlike circle svgs
+//               //   width: 10%;
+//               //   background-color: "red";
+//               //   border: 1px transparent black;
+
+//               //   border-radius: 50%;
+//               // }
+//             }
+//           }
+//         }
+//       }
+//       &__screen {
+//         border-radius: 6px;
+//         &__body {
+//           margin: 5%;
+//           h1 {
+//             margin: 0;
+//             text-align: right;
+//             font-size: 4.5rem;
+//           }
+//         }
+//       }
+//     }
+//     &__buttons {
+//       height: 60%;
+//       width: 40%;
+//       border-radius: 6px;
+
+//       &__grid {
+//         height: 90%;
+//         margin: 5%;
+//         display: grid;
+//         grid-template-columns: repeat(4, 1fr);
+//         grid-template-rows: repeat(5, 1fr);
+
+//         row-gap: 5%;
+//         column-gap: 5%;
+//         button {
+//           border-radius: 12px;
+//           box-sizing: content-box;
+//           line-height: 0;
+//           padding: 0px;
+//         }
+//         &__insert {
+//           font-size: 3rem;
+//           border: 0px;
+
+//           border-bottom: 0.35rem solid;
+//         }
+
+//         &__reset {
+//           text-transform: uppercase;
+//           border: 0px;
+
+//           border-bottom: 0.35rem solid;
+//         }
+//         #res {
+//           grid-column: span 2;
+//         }
+//         #calculate {
+//           border: 0px;
+
+//           border-bottom: 0.35rem solid;
+
+//           grid-column: span 2;
+//         }
+//       }
+//     }
+//   }
+//   .attribution {
+//     font-size: 1rem;
+//     text-align: center;
+//   }
+
+//   .attribution a {
+//     color: hsl(228, 45%, 44%);
+//   }
+// }
+
 .container {
   height: 100vh;
   width: auto;
-  background-color: hsl(222, 26%, 31%);
   font-family: "League Spartan", sans-serif;
   &__calculator {
     height: 100%;
@@ -12,12 +156,8 @@
     align-items: center;
     font-size: 1.5rem;
     &__panel {
-      color: white;
       margin-bottom: 2%;
-
-      // padding: 2%;
-      height: 30%;
-      width: 40%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       &__head {
@@ -33,18 +173,19 @@
         &__theme {
           display: flex;
           flex-direction: row;
-          width: 30%;
+          width: 50%;
+          #themeTitle {
+            margin-right: 0.5rem;
+          }
           h6 {
-            width: 20%;
-
+            // width: 20%;
             margin-bottom: 0;
           }
           &__selector {
-            margin-left: 10%;
             width: 80%;
             &__numpad {
               h6 {
-                margin-top: 10%;
+                margin-top: 0.87rem;
                 &:nth-child(2) {
                   text-align: center;
                 }
@@ -56,38 +197,48 @@
               justify-content: space-between;
             }
             &__checkbox {
+              width: 100%;
+              height: 30%;
+              display: flex;
+              align-items: center;
               border-radius: 12px;
-
-              background-color: hsl(224, 36%, 15%);
               svg {
                 margin-left: 3%;
+                height: 100%;
               }
               #circle {
-                color: white;
+                height: 100%;
               }
+              // #progress { divs are always rectangulare shaped unlike circle svgs
+              //   width: 10%;
+              //   background-color: "red";
+              //   border: 1px transparent black;
+
+              //   border-radius: 50%;
+              // }
             }
           }
         }
       }
       &__screen {
         border-radius: 6px;
-
-        background-color: hsl(224, 36%, 15%);
+        margin-bottom: 2%;
         &__body {
           margin: 5%;
+          p {
+            font-size: 1.5rem;
+          }
           h1 {
             margin: 0;
-            color: white;
             text-align: right;
-            font-size: 4.5rem;
+            font-size: 2rem;
           }
         }
       }
     }
     &__buttons {
       height: 60%;
-      width: 40%;
-      background: hsl(223, 31%, 20%);
+      width: 90%;
       border-radius: 6px;
 
       &__grid {
@@ -104,30 +255,29 @@
           box-sizing: content-box;
           line-height: 0;
           padding: 0px;
+          font-size: 1.5rem;
         }
         &__insert {
           font-size: 3rem;
-          color: hsl(221, 14%, 31%);
           border: 0px;
-          background-color: hsl(30, 25%, 89%);
-          border-bottom: 0.35rem solid hsl(28, 16%, 65%);
+
+          border-bottom: 0.35rem solid;
         }
 
         &__reset {
           text-transform: uppercase;
-          color: white;
           border: 0px;
-          background-color: hsl(225, 21%, 49%);
-          border-bottom: 0.35rem solid hsl(224, 28%, 35%);
+
+          border-bottom: 0.35rem solid;
         }
         #res {
           grid-column: span 2;
         }
         #calculate {
-          color: white;
-          background-color: hsl(6, 63%, 50%);
           border: 0px;
-          border-bottom: 0.35rem solid hsl(6, 70%, 34%);
+
+          border-bottom: 0.35rem solid;
+
           grid-column: span 2;
         }
       }
@@ -140,5 +290,61 @@
 
   .attribution a {
     color: hsl(228, 45%, 44%);
+  }
+}
+@media screen and (min-width: "375px") and (max-width: "1024px") {
+  .container {
+    &__calculator {
+      &__panel {
+        &__screen {
+          &__body {
+            p {
+              font-size: 1.5rem;
+            }
+            h1 {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+      &__buttons {
+        button {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: "1024px") and (max-width: "4000px") {
+  .container {
+    &__calculator {
+      &__panel {
+        width: 40%;
+        &__head {
+          &__theme {
+            width: 30%;
+          }
+        }
+        &__screen {
+          &__body {
+            p {
+              font-size: 2rem;
+            }
+            h1 {
+              font-size: 3.5rem;
+            }
+          }
+        }
+      }
+      &__buttons {
+        width: 40%;
+        &__grid {
+          button {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
   }
 }
